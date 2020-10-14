@@ -16,7 +16,7 @@ noremap <silent> <leader>bp :bp<CR>
 noremap <leader>bt :b<Space> 
 noremap <silent> <leader>bd :bd<CR>
 noremap <silent> <leader>bD :bd!<CR>
-noremap <silent> <leader>bN :badd
+noremap <leader>bN :badd<space>
 
 " Spacers --------------------------------------------------------------------
 noremap <silent> <leader>iS :call FillLine('*')<CR>
