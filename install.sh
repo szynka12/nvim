@@ -95,15 +95,18 @@ prep_config_folder () {
 }
 
 fetch_repo () {
-  info "Trying to clone the config"
+  info "Trying to cloned the config"
   git clone https://github.com/szynka12/nvim.git "$HOME/.config/nvim"
   if [ $? -eq 0 ]; then
-    success "Successfully clone SpaceVim"
+    success "Successfully cloned"
   else
-    error "Failed to clone SpaceVim"
+    error "Failed to cloned"
     exit 0
   fi
 }
 
 
 check_shell_dependencies "${dependeds_on_shell[@]}"
+install_package_manager
+prep_config_folder
+fetch_repo
