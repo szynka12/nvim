@@ -81,5 +81,10 @@ let g:which_key_map.g = {
   \ 'L': ['GV',                         'log (this file)'],
   \ }
 
+let g:which_key_map.t = {
+      \ 'name' : '+terminal' ,
+      \ ';' : [':FloatermNew --wintype=window-below --height=6'        , 'terminal'],
+      \ 't' : [':FloatermToggle'                                , 'toggle'],
+      \ }
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")

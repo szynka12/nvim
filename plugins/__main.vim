@@ -36,6 +36,8 @@ if dein#load_state('~/.cache/dein')
   call dein#add('tpope/vim-rhubarb')
   call dein#add('junegunn/gv.vim')
 
+  " Terminal 
+  call dein#add('voldikss/vim-floaterm')
   " **************************************************************************
   call dein#end()
   call dein#save_state()
@@ -66,7 +68,11 @@ source $HOME/.config/nvim/plugins/vimtex.vim
 source $HOME/.config/nvim/plugins/nerdtree.vim
 source $HOME/.config/nvim/plugins/airline.vim
 source $HOME/.config/nvim/plugins/startify.vim
+
+source $HOME/.config/nvim/plugins/vim-floatterm.vim
+
 source $HOME/.config/nvim/plugins/signify.vim
 
-
+" ******************************************************************************
+" Keep this at the end as it maps keybindings to the rest of the plugins 
 source $HOME/.config/nvim/plugins/vim-which-key.vim
