@@ -41,20 +41,3 @@ set clipboard=unnamedplus
 " Color and scheme
 colorscheme dracula
 
-" ****************************************************************************
-
-
-" Options causing wierd or unexpected behaiviour
-
-" Disables the airline bar after writing the init.vim file (not on initial
-" statup)
-" set laststatus=0                        " Always display the status line
-
-" ****************************************************************************
-
-" Unused general options (kept here only for reference)
-"set autochdir      " Your working directory will always be the same as your 
-                    "working directory
-"set cursorline     " Enable highlighting of the current line
-"set pumheight=10   " Makes popup menu smaller
-"set ruler          " Show the cursor position all the time

@@ -18,7 +18,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('ryanoasis/vim-devicons')
   
   call dein#add('lervag/vimtex')
-  "call dein#add('KeitaNakamura/tex-conceal.vim', {'for': 'tex'}) 
 
   call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
   
