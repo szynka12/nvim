@@ -13,9 +13,11 @@ if dein#load_state('~/.cache/dein')
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
   
   call dein#add('preservim/nerdtree')
+  
   call dein#add('vim-airline/vim-airline')
+  call dein#add('vim-airline/vim-airline-themes')
+ 
   call dein#add('dracula/vim', {'name': 'dracula'})
-  call dein#add('ryanoasis/vim-devicons')
   
   call dein#add('lervag/vimtex')
 
@@ -25,6 +27,14 @@ if dein#load_state('~/.cache/dein')
   call dein#add('honza/vim-snippets') 
   
   call dein#add('liuchengxu/vim-which-key')
+
+  call dein#add('mhinz/vim-startify')
+  
+  " Git integration plugins
+  call dein#add('mhinz/vim-signify')
+  call dein#add('tpope/vim-fugitive')
+  call dein#add('tpope/vim-rhubarb')
+  call dein#add('junegunn/gv.vim')
 
   " **************************************************************************
   call dein#end()
@@ -55,5 +65,8 @@ source $HOME/.config/nvim/plugins/vimtex.vim
 
 source $HOME/.config/nvim/plugins/nerdtree.vim
 source $HOME/.config/nvim/plugins/airline.vim
+source $HOME/.config/nvim/plugins/startify.vim
+source $HOME/.config/nvim/plugins/signify.vim
+
 
 source $HOME/.config/nvim/plugins/vim-which-key.vim

@@ -42,9 +42,9 @@ let g:which_key_map['w'] = {
 " Files
 let g:which_key_map.f = {
       \ 'name' : '+files' ,
-      \ 's': [':source $MYVIMRC<cr>',  'source vimrc'],
-      \ 'c': [':sp $MYVIMRC<cr>',      'edit vimrc'],
-      \ 't': [':NERDTreeToggle<cr>',  'browser'],
+      \ 's': [':source $MYVIMRC',  'source vimrc'],
+      \ 'c': [':sp $MYVIMRC',      'edit vimrc'],
+      \ 't': [':NERDTreeToggle',  'browser'],
       \ }
 
 " Buffers
@@ -67,6 +67,19 @@ let g:which_key_map.m = {
 "Mapping for the coc, defined in separate file 
 let g:which_key_map.q = {'name': '+coc'}
 
+let g:which_key_map.g = {
+  \ 'name': '+git',
+  \ 'j': ['<plug>(signify-next-hunk)',  'next hunk'],
+  \ 'k': ['<plug>(signify-prev-hunk)',  'prev hunk'],
+  \ 't': ['SignifyToggle',              'toggle signs'],
+  \ 'T': ['SignifyToggleHighligh',      'toggle signs'],
+  \ 's': [':Gstatus',                   'status'],
+  \ 'p': [':Git push',                  'push'],
+  \ 'a': [':Git add .',                 'add .'],
+  \ 'G': ['GBrowse',                    'github.com'],
+  \ 'l': ['GV',                         'log'],
+  \ 'L': ['GV',                         'log (this file)'],
+  \ }
 
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
