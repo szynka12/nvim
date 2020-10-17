@@ -7,6 +7,7 @@ au! BufWritePost $MYVIMRC source %
 syntax enable        " Enables syntax highlighing
 set hidden           " Required to keep multiple buffers open multiple buffers
 "set wrap            " Wrap lines
+set textwidth=80
 set colorcolumn=+1   " Highlight column after 'textwidth'
 set encoding=utf-8   " The encoding displayed
 set cmdheight=2      " More space for displaying messages
