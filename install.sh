@@ -84,7 +84,11 @@ install_package_manager () {
   if [[ ! -d $dein_folder ]]; then
     mkdir -p $dein_folder
     info "Installing dein.vim"
-    curl -sFL https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | bash $dein_folder
+
+    curl -sL https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh -o ./tmp_install.sh 
+    sh ./tmp_install.sh $dein_folder
+    rm ./tmp_install.sh
+    
     success "dein.vim installation done"
   else
     error "You already have $dein_folder. Erease it before continuing."

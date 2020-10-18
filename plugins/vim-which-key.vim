@@ -90,6 +90,7 @@ let g:which_key_map.g = {
   \ 't': ['SignifyToggle',              'toggle signs'],
   \ 'T': ['SignifyToggleHighligh',      'toggle signs'],
   \ 's': [':Gstatus',                   'status'],
+  \ 'c': [':Gcommit',                   'commit'],
   \ 'p': [':Git push',                  'push'],
   \ 'a': [':Git add .',                 'add .'],
   \ 'G': ['GBrowse',                    'github.com'],
