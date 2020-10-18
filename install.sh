@@ -1,15 +1,62 @@
 #!/bin/bash
 
+# Main variables
 dein_folder="$HOME/.cache/dein"
 neovim_config="$HOME/.config/nvim"
 
 # Dependencies *****************************************************************
-# 
-# add python, node.js, clipboard
-# check if you can check nvim health from the terminal
-dependeds_on_shell=("nvim" "ccls")
+#
+# 1. Nvim
+neovim_fail_msg="
 
-fonts=("") # check how to do fonts
+  You can install neovim with:
+
+    Ubuntu: sudo apt install nvim
+    Arch:   pacman -S neovim
+
+"
+# 2. python
+python_fail_msg="
+
+  You can instal python provider with:
+  
+    Ubuntu: sudo apt install python3-pynvim
+    Arch:   -
+
+"
+# 3. node.js
+npm_fail_msg="
+  
+  You can install npm with:
+
+    Ubuntu: sudo apt install npm
+    Arch:   -
+
+"
+# 4. Clipboard
+xclip_fail_msg="
+
+  You can install xsel with:
+
+    Ubuntu: sudo apt install xclip
+    Arch:   -
+
+"
+# 5. ccls for c++
+ccls_fail_msg="
+  You can install support for C/C++ with:
+    
+    Ubuntu: sudo apt install ccls
+    Arch:   - 
+
+"
+
+# nerd fonts
+# select gui nerd font and size
+# remake depenency installation
+# add options to uninstall
+
+
 
 # Colors for the preety terminal output ****************************************
 #
@@ -31,52 +78,64 @@ White='\033[0;37m'        # White
 #
 # Also stolen form SpaceVim install script. Check it out it is awesome!
 
-msg() {
-  printf '%b\n' "$1" >&2
-}
+msg()     { printf '%b\n' "$1" >&2; }
+success() { msg "${Green}[✔]${Color_off} ${1}${2}"; }
+info()    { msg "${Blue}[➭]${Color_off} ${1}${2}"; }
+error()   { msg "${Red}[✘]${Color_off} ${1}${2}"; exit 1; }
+warn ()   { msg "${Yellow}[⚠]${Color_off} ${1}${2}"; }
 
-success() {
-  msg "${Green}[✔]${Color_off} ${1}${2}"
-}
-
-info() {
-  msg "${Blue}[➭]${Color_off} ${1}${2}"
-}
-
-error() {
-  msg "${Red}[✘]${Color_off} ${1}${2}"
-  exit 1
-}
-
-warn () {
-  msg "${Yellow}[⚠]${Color_off} ${1}${2}"
-}
-
-
-need_cmd () {
+# Check if command exists
+has_cmd () {
   if ! command -v $1 &> /dev/null
   then
-    error "Command '$1' could not be found!"
-    exit 1
+    return 1
+  else
+    return 0
   fi
 }
 
 # Check dependencies ***********************************************************
+check_dep () {
+  if [ "$#" -ne 3 ]; then
+    error "[check_dep] Illegal number of parameters."
+  fi
+  
+  local dep_name=${1}
+  local is_critical=${2}
+  local fail_msg="Command '${dep_name}' could not be found.${3}"
+  
 
-# Check for dependecy
-# 
-# $1 - name
-# $2 - 
-#check_dep () {
-#}
-
-check_shell_dependencies () {
-  local dep=("$@")
-  for d in ${dep[*]}; do
-    need_cmd "$d"
-    success "Found '$d'"
-  done
+  if has_cmd $dep_name; then
+    success "Found '$dep_name'"
+  else
+    if [ $is_critical -eq 0 ]; then
+      error "${fail_msg}"
+    else
+      warn "${fail_msg}"
+    fi
+  fi
 }
+
+check_python () {
+  if [ "$#" -ne 3 ]; then
+    error "[check_dep] Illegal number of parameters."
+  fi
+  
+  local dep_name=${1}
+  local is_critical=${2}
+  local fail_msg="Python module '${dep_name}' could not be found.${3}"
+  
+  if python3 -c "import $dep_name"; then
+    success "Found '$dep_name'"
+  else
+    if [ $is_critical -eq 0 ]; then
+      error "${fail_msg}"
+    else
+      warn "${fail_msg}"
+    fi
+  fi
+}
+
 
 # Install dein.vim *************************************************************
 
@@ -123,7 +182,7 @@ prep_config_folder () {
 }
 
 fetch_repo () {
-  info "Trying to cloned the config"
+  info "Trying to clone the config"
   git clone https://github.com/szynka12/nvim.git "$neovim_config"
   if [ $? -eq 0 ]; then
     success "Successfully cloned"
@@ -134,7 +193,14 @@ fetch_repo () {
 }
 
 
-check_shell_dependencies "${dependeds_on_shell[@]}"
+info "Checking dependecies:"
+
+check_dep "nvim" "0" "$neovim_fail_msg"
+check_python "pynvim" "1" "$python_fail_msg"
+check_dep "npm" "1" "$npm_fail_msg"
+check_dep "xclip" "1" "$xclip_fail_msg"
+check_dep "ccls" "0" "$ccls_fail_msg"
+
 install_package_manager
 prep_config_folder
 fetch_repo

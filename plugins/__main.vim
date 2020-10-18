@@ -38,6 +38,9 @@ if dein#load_state('~/.cache/dein')
 
   " Terminal 
   call dein#add('voldikss/vim-floaterm')
+
+  " Icons (keep last)
+  call dein#add('ryanoasis/vim-devicons')
   " **************************************************************************
   call dein#end()
   call dein#save_state()
