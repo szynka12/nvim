@@ -1,8 +1,13 @@
 #!/bin/bash
 
-# Dependencies *****************************************************************
+dein_folder="$HOME/.cache/dein"
 
+# Dependencies *****************************************************************
+# 
+# add python, node.js, clipboard
+# check if you can check nvim health from the terminal
 dependeds_on_shell=("nvim" "ccls")
+
 fonts=("") # check how to do fonts
 
 # Colors for the preety terminal output ****************************************
@@ -57,6 +62,13 @@ need_cmd () {
 
 # Check dependencies ***********************************************************
 
+# Check for dependecy
+# 
+# $1 - name
+# $2 - 
+check_dep () {
+}
+
 check_shell_dependencies () {
   local dep=("$@")
   for d in ${dep[*]}; do
@@ -68,17 +80,18 @@ check_shell_dependencies () {
 # Install dein.vim *************************************************************
 
 install_package_manager () {
-    if [[ ! -d "$HOME/.cache/vimfiles/repos/github.com/Shougo/dein.vim" ]]; then
+    if [[ ! -d $dein_folder ]]; then
         info "Installing dein.vim"
-        git clone https://github.com/Shougo/dein.vim.git $HOME/.cache/vimfiles/repos/github.com/Shougo/dein.vim
+        curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh\ 
+          | bash $dein_folder
         success "dein.vim installation done"
     fi
 }
 
 uninstall_package_menager () {
-    if [[ -d "$HOME/.cache/vimfiles/repos/github.com/Shougo/dein.vim" ]]; then
+    if [[ -d $dein_folder ]]; then
         info "Removing dein.vim"
-        rm -r $HOME/.cache/vimfiles/repos/github.com/Shougo/dein.vim
+        rm -r $dein_folder 
         success "dein.vim removed"
     fi
 }
