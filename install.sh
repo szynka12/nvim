@@ -1,6 +1,7 @@
 #!/bin/bash
 
 dein_folder="$HOME/.cache/dein"
+neovim_config="$HOME/.config/nvim"
 
 # Dependencies *****************************************************************
 # 
@@ -31,33 +32,33 @@ White='\033[0;37m'        # White
 # Also stolen form SpaceVim install script. Check it out it is awesome!
 
 msg() {
-    printf '%b\n' "$1" >&2
+  printf '%b\n' "$1" >&2
 }
 
 success() {
-    msg "${Green}[✔]${Color_off} ${1}${2}"
+  msg "${Green}[✔]${Color_off} ${1}${2}"
 }
 
 info() {
-    msg "${Blue}[➭]${Color_off} ${1}${2}"
+  msg "${Blue}[➭]${Color_off} ${1}${2}"
 }
 
 error() {
-    msg "${Red}[✘]${Color_off} ${1}${2}"
-    exit 1
+  msg "${Red}[✘]${Color_off} ${1}${2}"
+  exit 1
 }
 
 warn () {
-    msg "${Yellow}[⚠]${Color_off} ${1}${2}"
+  msg "${Yellow}[⚠]${Color_off} ${1}${2}"
 }
 
 
 need_cmd () {
-    if ! command -v $1 &> /dev/null
-    then
-      error "Command '$1' could not be found!"
-      exit 1
-    fi
+  if ! command -v $1 &> /dev/null
+  then
+    error "Command '$1' could not be found!"
+    exit 1
+  fi
 }
 
 # Check dependencies ***********************************************************
@@ -66,8 +67,8 @@ need_cmd () {
 # 
 # $1 - name
 # $2 - 
-check_dep () {
-}
+#check_dep () {
+#}
 
 check_shell_dependencies () {
   local dep=("$@")
@@ -80,36 +81,46 @@ check_shell_dependencies () {
 # Install dein.vim *************************************************************
 
 install_package_manager () {
-    if [[ ! -d $dein_folder ]]; then
-        info "Installing dein.vim"
-        curl https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh\ 
-          | bash $dein_folder
-        success "dein.vim installation done"
-    fi
+  if [[ ! -d $dein_folder ]]; then
+    mkdir -p $dein_folder
+    info "Installing dein.vim"
+    curl -sFL https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh | bash $dein_folder
+    success "dein.vim installation done"
+  else
+    error "You already have $dein_folder. Erease it before continuing."
+  fi
 }
 
 uninstall_package_menager () {
-    if [[ -d $dein_folder ]]; then
-        info "Removing dein.vim"
-        rm -r $dein_folder 
-        success "dein.vim removed"
-    fi
+  if [[ -d $dein_folder ]]; then
+    info "Removing dein.vim"
+    rm -r $dein_folder 
+    success "dein.vim removed"
+  fi
 }
 
 prep_config_folder () {
-  if [[ -d "$HOME/.config/nvim" ]]; then
-      info "Backing up your neovim configuration in '$HOME/.config/nvim_back'"
-      mv "$HOME/.config/nvim" "$HOME/.config/nvim_back"
-      mkdir "$HOME/.config/nvim"
+  if [[ -d $neovim_config ]]; then
+    neovim_config_backup="${neovim_config}_back"
+
+    if [[ -d $neovim_config ]]; then
+      info "Backing up your neovim configuration in $neovim_config_backup"
+      mv "$neovim_config" "$neovim_config_backup"
+      info "Cleaning in $neovim_config"
+      rm -rf "${neovim_config}/*"
     else
-        mkdir -p "$HOME/.config/nvim"
-        info "Making '$HOME/.config/nvim/' folder"
+      error "You already have one backup in '$neovim_config_backup'. Erase it before continuing."
     fi
+
+  else
+    mkdir -p "$neovim_config"
+    info "Making '$neovim_config' folder"
+  fi
 }
 
 fetch_repo () {
   info "Trying to cloned the config"
-  git clone https://github.com/szynka12/nvim.git "$HOME/.config/nvim"
+  git clone https://github.com/szynka12/nvim.git "$neovim_config"
   if [ $? -eq 0 ]; then
     success "Successfully cloned"
   else
