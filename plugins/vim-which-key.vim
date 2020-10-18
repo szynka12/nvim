@@ -17,6 +17,21 @@ let g:which_key_map.c = { 'name': '+comments',
       \ '-'       : [':Spacer "-"','spacer <->'],
       \ '*'       : [':Spacer "*"','spacer <*>'],
       \ }
+" Sessions
+":SLoad       load a session
+":SSave[!]    save a session
+":SDelete[!]  delete a session
+":SClose      close a session
+
+let g:which_key_map.S = {
+  \ 'name' : '+Session',
+  \ 'l' : [':SLoad',    'load'],
+  \ 's' : [':SSave',    'save'],
+  \ 'S' : [':SSave!',   'save!'],
+  \ 'd' : [':SDelete',  'delete'],
+  \ 'D' : [':SDelete!', 'delete!'],
+  \ 'c' : [':Sclose',   'close'],
+  \ }
 
 " Windows
 let g:which_key_map['w'] = {
@@ -67,6 +82,7 @@ let g:which_key_map.m = {
 "Mapping for the coc, defined in separate file 
 let g:which_key_map.q = {'name': '+coc'}
 
+" Git integration
 let g:which_key_map.g = {
   \ 'name': '+git',
   \ 'j': ['<plug>(signify-next-hunk)',  'next hunk'],
@@ -81,10 +97,13 @@ let g:which_key_map.g = {
   \ 'L': ['GV',                         'log (this file)'],
   \ }
 
+" Integrated termianal
 let g:which_key_map.t = {
       \ 'name' : '+terminal' ,
       \ ';' : [':FloatermNew --wintype=window-below --height=6'        , 'terminal'],
       \ 't' : [':FloatermToggle'                                , 'toggle'],
       \ }
+
+
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
