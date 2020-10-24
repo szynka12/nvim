@@ -57,9 +57,10 @@ let g:which_key_map['w'] = {
 " Files
 let g:which_key_map.f = {
       \ 'name' : '+files' ,
-      \ 's': [':source $MYVIMRC',  'source vimrc'],
-      \ 'c': [':sp $MYVIMRC',      'edit vimrc'],
+      \ 'S': [':source $MYVIMRC', 'source vimrc'],
+      \ 'C': [':sp $MYVIMRC',     'edit vimrc'],
       \ 't': [':NERDTreeToggle',  'browser'],
+      \ 'c': [':NERDTreeFind',    'browser: current folder'] 
       \ }
 
 " Buffers

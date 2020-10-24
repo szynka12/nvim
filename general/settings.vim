@@ -41,3 +41,5 @@ set clipboard=unnamedplus
 " Color and scheme
 colorscheme dracula
 
+" Gui specific settings
+set guifont=FiraCode\ Nerd\ Font\ Regular\ 11
