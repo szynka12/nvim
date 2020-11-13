@@ -63,13 +63,14 @@ let g:which_key_map.f = {
       \ 'c': [':NERDTreeFind',    'browser: current folder'] 
       \ }
 
+
 " Buffers
 let g:which_key_map.b = {
   \ 'name' : '+buffers',
   \ 'n': [':bn',      'next'],
   \ 'p': [':bp',      'previous'],
   \ 's': 'change by name',
-  \ 'd': [':bd',      'delete'],
+  \ 'd': [':BufferDelete',      'delete'],
   \ 'D': [':bd!',         'delete!'],
   \ 'a': 'add',
   \ }
@@ -81,7 +82,10 @@ let g:which_key_map.m = {
   \ }
 
 "Mapping for the coc, defined in separate file 
-let g:which_key_map.q = {'name': '+coc'}
+let g:which_key_map.q = {
+       \'name': '+coc',
+       \ 'F': ['ClangFormat', 'format c++'],
+       \ }
 
 " Git integration
 let g:which_key_map.g = {

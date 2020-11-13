@@ -38,6 +38,10 @@ if dein#load_state('~/.cache/dein')
 
   " Terminal 
   call dein#add('voldikss/vim-floaterm')
+  
+  "C++ lang
+  call dein#add('octol/vim-cpp-enhanced-highlight')
+  call dein#add('rhysd/vim-clang-format')
 
   " Icons (keep last)
   call dein#add('ryanoasis/vim-devicons')
