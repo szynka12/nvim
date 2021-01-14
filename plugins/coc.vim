@@ -1,3 +1,12 @@
+let g:coc_global_extensions = [
+      \'coc-cmake',
+      \'coc-vimlsp',
+      \'coc-vimtex',
+      \'coc-snippets',
+      \'coc-sh',
+      \'coc-json'
+      \]
+
 " Below are setings recomended from the coc page
 set nobackup                            
 set nowritebackup
