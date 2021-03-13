@@ -99,8 +99,8 @@ let g:which_key_map.g = {
   \ 'p': [':Git push',                  'push'],
   \ 'a': [':Git add .',                 'add .'],
   \ 'G': ['GBrowse',                    'github.com'],
-  \ 'l': ['GV',                         'log'],
-  \ 'L': ['GV',                         'log (this file)'],
+  \ 'l': ['GV',                         'commit history'],
+  \ 'L': [':GV!',                        'commit history (this file)'],
   \ }
 
 " Integrated termianal

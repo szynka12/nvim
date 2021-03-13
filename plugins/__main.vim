@@ -12,39 +12,50 @@ if dein#load_state('~/.cache/dein')
   
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
   
-  call dein#add('preservim/nerdtree')
-  
+  " Theme related things -------------------------------------------------------
   call dein#add('vim-airline/vim-airline')
   call dein#add('vim-airline/vim-airline-themes')
- 
   call dein#add('dracula/vim', {'name': 'dracula'})
+  call dein#add('mhinz/vim-startify')
+  call dein#add('liuchengxu/vim-which-key')
+  call dein#add('preservim/nerdcommenter', { 'on_map': '<leader>c' }) 
+  call dein#add('ryanoasis/vim-devicons')
   
-  call dein#add('lervag/vimtex')
-
+  call dein#add('preservim/nerdtree', {'on_cmd': 'NERDTreeToggle'})
+  
   call dein#add('neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' })
   
-  call dein#add('preservim/nerdcommenter') 
-  call dein#add('honza/vim-snippets') 
-  
-  call dein#add('liuchengxu/vim-which-key')
-
-  call dein#add('mhinz/vim-startify')
-  
-  " Git integration plugins
-  call dein#add('mhinz/vim-signify')
-  call dein#add('tpope/vim-fugitive')
-  call dein#add('tpope/vim-rhubarb')
-  call dein#add('junegunn/gv.vim')
-
-  " Terminal 
-  call dein#add('voldikss/vim-floaterm')
+  " Latex 
+  call dein#add('lervag/vimtex',
+        \ {'on_ft': ['tex', 'sty', 'cls', 'bib']})
   
   "C++ lang
-  call dein#add('octol/vim-cpp-enhanced-highlight')
-  call dein#add('rhysd/vim-clang-format')
+  call dein#add('octol/vim-cpp-enhanced-highlight', {'on_ft': ['c', 'cpp']})
+  call dein#add('rhysd/vim-clang-format',           {'on_ft': ['c', 'cpp']})
+  
+  call dein#add('honza/vim-snippets') 
+  
+  " Git integration plugins ----------------------------------------------------
+  " Line markers
+  call dein#add('mhinz/vim-signify')
+  " Basic git functionality
+  call dein#add('tpope/vim-fugitive', 
+        \ { 
+        \   'on_cmd': [ 'Git', 'Gstatus', 'Gwrite', 'Glog', 'Gcommit', 
+        \       'Gblame', 'Ggrep', 'Gdiff', ] 
+        \ } )
+ 
+  " Git github connectivity, dont need that now
+  "call dein#add('tpope/vim-rhubarb')
+  
+  " Commit browser 
+  call dein#add('junegunn/gv.vim', 
+        \ {
+        \     'on_cmd'  : ['GV', 'GV!', 'GV?'],
+        \     'depends' : ['vim-fugitive']
+        \ })
 
-  " Icons (keep last)
-  call dein#add('ryanoasis/vim-devicons')
+
   " **************************************************************************
   call dein#end()
   call dein#save_state()
