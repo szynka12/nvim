@@ -55,6 +55,7 @@ if dein#load_state('~/.cache/dein')
         \     'depends' : ['vim-fugitive']
         \ })
 
+  call dein#add('vimwiki/vimwiki')
 
   " **************************************************************************
   call dein#end()
@@ -77,20 +78,23 @@ call dein#recache_runtimepath()
 " ****************************************************************************
 " ****************************************************************************
 
-" Source plugin specific configs
-source $HOME/.config/nvim/plugins/coc.vim
+if has('win32')
+  source $HOME/AppData/Local/nvim/plugins/coc.vim
+  source $HOME/AppData/Local/nvim/plugins/vimtex.vim
+  source $HOME/AppData/Local/nvim/plugins/nerdtree.vim
+  source $HOME/AppData/Local/nvim/plugins/airline.vim
+  source $HOME/AppData/Local/nvim/plugins/startify.vim
+  source $HOME/AppData/Local/nvim/plugins/vim-floatterm.vim
+  source $HOME/AppData/Local/nvim/plugins/signify.vim
+  source $HOME/AppData/Local/nvim/plugins/vim-which-key.vim
+else
+  source $HOME/.config/nvim/plugins/coc.vim
+  source $HOME/.config/nvim/plugins/vimtex.vim
+  source $HOME/.config/nvim/plugins/nerdtree.vim
+  source $HOME/.config/nvim/plugins/airline.vim
+  source $HOME/.config/nvim/plugins/startify.vim
+  source $HOME/.config/nvim/plugins/vim-floatterm.vim
+  source $HOME/.config/nvim/plugins/signify.vim
+  source $HOME/.config/nvim/plugins/vim-which-key.vim
+endif
 
-source $HOME/.config/nvim/plugins/vimtex.vim
-"source $HOME/.config/nvim/plugins/tex-conceal.vim
-
-source $HOME/.config/nvim/plugins/nerdtree.vim
-source $HOME/.config/nvim/plugins/airline.vim
-source $HOME/.config/nvim/plugins/startify.vim
-
-source $HOME/.config/nvim/plugins/vim-floatterm.vim
-
-source $HOME/.config/nvim/plugins/signify.vim
-
-" ******************************************************************************
-" Keep this at the end as it maps keybindings to the rest of the plugins 
-source $HOME/.config/nvim/plugins/vim-which-key.vim

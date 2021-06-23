@@ -110,6 +110,19 @@ let g:which_key_map.t = {
       \ 't' : [':FloatermToggle'                                , 'toggle'],
       \ }
 
+" Git integration
+let g:which_key_map.v = {
+  \ 'name': '+wiki',
+  \ 'w' : ['<Plug>VimwikiIndex', 'index'],
+  \ 'l' : ['<Plug>VimwikiUISelect', 'list'],
+  \ 'h' : ['<Plug>VimwikiAddHeaderLevel', 'header+'],
+  \ 'H' : ['<Plug>VimwikiRemoveHeaderLevel', 'header-'],
+  \ 'd' : ['<Plug>VimwikiDeleteFile', 'delete'],
+  \ 'i' : ['<Plug>VimwikiIncreaseLvlSingleItem', 'tab item'],
+  \ 'I' : ['<Plug>VimwikiIncreaseLvlWholeItem', 'tab tree'],
+  \ 'u' : ['<Plug>VimwikiDecreaseLvlSingleItem', 's+tab item'],
+  \ 'U' : ['<Plug>VimwikiDecreaseLvlWholeItem', 's+tab tree'],
+  \ }
 
 " Register which key map
 call which_key#register('<Space>', "g:which_key_map")
