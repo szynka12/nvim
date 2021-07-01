@@ -8,48 +8,48 @@ let g:which_key_map =  {}
 
 " Plugin management
 let g:which_key_map.P = {
-    \ 'name' : '+Plugin' ,
-    \ 'i' : ['PlugInstall' , 'install'],
-    \ 'c' : ['PlugClean'   , 'clean'],
-    \ 'u' : ['PlugUpdate'  , 'update'],
-    \ }
+      \ 'name' : '+Plugin' ,
+      \ 'i' : ['PlugInstall' , 'install'],
+      \ 'c' : ['PlugClean'   , 'clean'],
+      \ 'u' : ['PlugUpdate'  , 'update'],
+      \ }
 
 " Tabline management
 let g:which_key_map.b = {
-    \ 'name' : '+buffer' ,
-    \ 'n' : ['BufferNext',          'next'],
-    \ 'p' : ['BufferPrevious',      'prev'],
-    \ 'N' : ['BufferMoveNext',      'move next'],
-    \ 'P' : ['BufferMovePrevious',  'move prev'],
-    \ 'l' : ['BufferLast',          'last'],
-    \ 'd' : ['BufferClose',         'close'],
-    \ 'm' : ['BufferPick',          'pick'],
-    \ }
+      \ 'name' : '+buffer' ,
+      \ 'n' : ['BufferNext',          'next'],
+      \ 'p' : ['BufferPrevious',      'prev'],
+      \ 'N' : ['BufferMoveNext',      'move next'],
+      \ 'P' : ['BufferMovePrevious',  'move prev'],
+      \ 'l' : ['BufferLast',          'last'],
+      \ 'd' : ['BufferClose',         'close'],
+      \ 'm' : ['BufferPick',          'pick'],
+      \ }
 
 " File tree
 let g:which_key_map.f = {
-    \ 'name' : '+file' ,
-    \ 's' : ['wq',              'save'],
-    \ 't' : ['NvimTreeToggle',  'browse'],
-    \ }
+      \ 'name' : '+file' ,
+      \ 's' : ['wq',              'save'],
+      \ 't' : ['NvimTreeToggle',  'browse'],
+      \ }
 
 
 let g:which_key_map.S = {
-  \ 'name' : '+Session',
-  \ 'l' : [':SLoad',    'load'],
-  \ 's' : [':SSave',    'save'],
-  \ 'S' : [':SSave!',   'save!'],
-  \ 'd' : [':SDelete',  'delete'],
-  \ 'D' : [':SDelete!', 'delete!'],
-  \ 'c' : [':Sclose',   'close'],
-  \ }
+      \ 'name' : '+Session',
+      \ 'l' : [':SLoad',    'load'],
+      \ 's' : [':SSave',    'save'],
+      \ 'S' : [':SSave!',   'save!'],
+      \ 'd' : [':SDelete',  'delete'],
+      \ 'D' : [':SDelete!', 'delete!'],
+      \ 'c' : [':Sclose',   'close'],
+      \ }
 
 
 "Mapping for the coc, defined in separate file 
 let g:which_key_map.q = {
-       \'name': '+coc',
-       \ 'F': ['ClangFormat', 'format c++'],
-       \ }
+      \'name': '+coc',
+      \ 'F': ['ClangFormat', 'format c++'],
+      \ }
 
 " Windows
 let g:which_key_map['w'] = {
@@ -71,6 +71,19 @@ let g:which_key_map['w'] = {
       \ 's' : ['<C-W>s'     , 'split-window-below']    ,
       \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
       \ }
+
+let g:which_key_map.v = {
+      \ 'name': '+wiki',
+      \ 'w' : ['<Plug>VimwikiIndex', 'index'],
+      \ 'l' : ['<Plug>VimwikiUISelect', 'list'],
+      \ 'h' : ['<Plug>VimwikiAddHeaderLevel', 'header+'],
+      \ 'H' : ['<Plug>VimwikiRemoveHeaderLevel', 'header-'],
+      \ 'd' : ['<Plug>VimwikiDeleteFile', 'delete'],
+      \ 'i' : ['<Plug>VimwikiIncreaseLvlSingleItem', 'tab item'],
+      \ 'I' : ['<Plug>VimwikiIncreaseLvlWholeItem', 'tab tree'],
+      \ 'u' : ['<Plug>VimwikiDecreaseLvlSingleItem', 's+tab item'],
+      \ 'U' : ['<Plug>VimwikiDecreaseLvlWholeItem', 's+tab tree'],
+      \ } 
 
 nnoremap <silent> <leader>/  :Commentary<CR>
 " let g:which_key_map.'/' = {'name' : 'comment'}

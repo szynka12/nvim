@@ -65,7 +65,9 @@ call plug#begin()
     Plug 'honza/vim-snippets'
     Plug 'tpope/vim-surround'
     Plug 'kevinhwang91/nvim-bqf'                " Better quickfix window
-    
+
+    " Wiki
+    Plug 'vimwiki/vimwiki' 
 
     Plug 'neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' }
 
