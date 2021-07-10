@@ -1,4 +1,3 @@
-GuiTabline 0
 
 let s:fontsize = 11
 

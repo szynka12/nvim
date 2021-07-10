@@ -7,6 +7,14 @@ autocmd BufRead,BufNewFile *.tex,*.sty setlocal nowrap
 let g:tex_conceal="abdgms"
 " --------------------------------------------------------------------------
 
+" nvim-tree
+let g:nvim_tree_auto_open = 1
+let g:nvim_tree_auto_close = 1
+let g:nvim_tree_quit_on_open = 1
+let g:nvim_tree_add_trailing = 1
+let g:nvim_tree_update_cwd = 1
+
+
 " vimwiki
 
 autocmd BufRead,BufNewFile *.wiki, setlocal conceallevel=2
