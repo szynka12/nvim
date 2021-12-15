@@ -67,7 +67,7 @@ call plug#begin()
     Plug 'kevinhwang91/nvim-bqf'                " Better quickfix window
 
     " Wiki
-    Plug 'vimwiki/vimwiki' 
+    " Plug 'vimwiki/vimwiki' 
 
     Plug 'neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' }
 
@@ -83,6 +83,9 @@ call plug#begin()
     
     " Language: LaTeX
     Plug 'lervag/vimtex'
+    
+    " Language: Markdown
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 call plug#end()
 
