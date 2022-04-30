@@ -95,5 +95,11 @@ let g:rainbow_active = 1
 
 source $HOME/.config/nvim/settings/theme.vim
 
+" Spelling
+hi clear SpellBad
+hi SpellBad cterm=underline ctermfg=red
+" Set style for gVim
+hi SpellBad gui=undercurl
+
 
 

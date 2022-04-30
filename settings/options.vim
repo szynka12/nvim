@@ -5,6 +5,16 @@ autocmd BufRead,BufNewFile *.tex,*.sty setlocal conceallevel=1
 autocmd BufRead,BufNewFile *.tex,*.sty setlocal textwidth=80
 autocmd BufRead,BufNewFile *.tex,*.sty setlocal nowrap
 let g:tex_conceal="abdgms"
+let g:vimtex_compiler_latexmk = {
+    \ 'options' : [
+    \   '-pdf',
+    \   '-shell-escape',
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
 " --------------------------------------------------------------------------
 
 " nvim-tree
@@ -13,6 +23,7 @@ let g:nvim_tree_auto_close = 1
 let g:nvim_tree_quit_on_open = 1
 let g:nvim_tree_add_trailing = 1
 let g:nvim_tree_update_cwd = 1
+
 
 
 " vimwiki
