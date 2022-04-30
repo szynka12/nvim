@@ -67,9 +67,9 @@ call plug#begin()
     Plug 'kevinhwang91/nvim-bqf'                " Better quickfix window
 
     " Wiki
-    Plug 'vimwiki/vimwiki' 
+    " Plug 'vimwiki/vimwiki' 
 
-    Plug 'neoclide/coc.nvim', { 'merged': 0, 'rev': 'release' }
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     " Language: Python
     " Plug 'psf/black', {'branch': 'stable'}
@@ -83,17 +83,32 @@ call plug#begin()
     
     " Language: LaTeX
     Plug 'lervag/vimtex'
+    
+    " Language: Markdown
+    Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 call plug#end()
 
-source $HOME/.config/nvim/settings/options.vim
-source $HOME/.config/nvim/settings/which-key.vim
-source $HOME/.config/nvim/settings/statusline.vim
+
+if has('win32')
+	source $HOME/AppData/Local/nvim/settings/options.vim
+	source $HOME/AppData/Local/nvim/settings/which-key.vim
+	source $HOME/AppData/Local/nvim/settings/statusline.vim
+    source $HOME/AppData/Local/nvim/settings/theme.vim
+
+    let g:python3_host_prog = 'C:\Python39\python.exe'
+else
+    source $HOME/.config/nvim/settings/options.vim
+    source $HOME/.config/nvim/settings/which-key.vim
+    source $HOME/.config/nvim/settings/statusline.vim
+    source $HOME/.config/nvim/settings/theme.vim
+endif
 
 let g:rainbow_active = 1
 
 
-source $HOME/.config/nvim/settings/theme.vim
+
+
 
 " Spelling
 hi clear SpellBad
