@@ -53,7 +53,7 @@ local windows = {
 }
 
 wk.register({["<leader><space>"] = { "<cmd>Telescope buffers<cr>", "browse buffers" }})
-vim.keymap.set('i', '<space><tab>', '<esc>', { desc = "normal mode" })
+vim.keymap.set('i', 'jj', '<esc>', { desc = "normal mode" })
 
 wk.register(files, { prefix = "<leader>" })
 wk.register(code, { prefix = "<leader>" })

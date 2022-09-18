@@ -58,7 +58,8 @@ return require('packer').startup(function(use)
   use 'tjdevries/nlua.nvim'
   use 'saadparwaiz1/cmp_luasnip'
 
-
+  --latex 
+  use 'lervag/vimtex'
 
 
   if install_plugins then

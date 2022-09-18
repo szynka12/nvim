@@ -5,11 +5,19 @@ local lspconfig = require('lspconfig')
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
+
+  local ins_desc = function (description)
+    return {
+      desc = description,
+      noremap=true, silent=true
+    }
+  end
+
+vim.keymap.set('n', '<space>qe', vim.diagnostic.open_float, ins_desc 'diag. float')
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, ins_desc 'next diag.')
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, ins_desc  'prev_diag')
+vim.keymap.set('n', '<space>qq', vim.diagnostic.setloclist, ins_desc 'diagnostics')
 
 
 local on_attach = function(client, bufnr)
@@ -79,4 +87,8 @@ lspconfig.sumneko_lua.setup({
   },
 })
 
+lspconfig.texlab.setup({
+  on_attach = on_attach,
+  flags = lsp_flags,
+})
 
