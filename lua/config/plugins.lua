@@ -61,6 +61,8 @@ return require('packer').startup(function(use)
   --latex 
   use 'lervag/vimtex'
 
+  --openfoam
+  use 'FoamScience/tree-sitter-foam'
 
   if install_plugins then
     require('packer').sync()

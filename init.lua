@@ -16,14 +16,14 @@ require('gui.statusline')
 require('gui.tabline')
 require('gui.blankline')
 require('gui.file_manager')
-require("gui.which_key")
+require('tools.which_key')
 
 
 
 -- Todo
--- move the which_key from gui it doesn not belong there
--- move latex related keybinds onto the normal leader
 -- cpp
 -- openfoam
 -- markdown
 -- julia
+-- make the basic config work on the cluster as well
+-- one line install
