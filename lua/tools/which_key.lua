@@ -46,14 +46,13 @@ local buffers = {
 local windows = {
   w = {
     name = 'window',
-    ['|']= {'<cmd>:vsplit', 'split vertically'},
-    ['-']= {'<cmd>:split', 'split horizontally'},
+    ['|']= {'<cmd>:vsplit<cr>', 'split vertically'},
+    ['-']= {'<cmd>:split<cr>', 'split horizontally'},
 
   }
 }
 
 wk.register({["<leader><space>"] = { "<cmd>Telescope buffers<cr>", "browse buffers" }})
-vim.keymap.set('i', 'jj', '<esc>', { desc = "normal mode" })
 
 wk.register(files, { prefix = "<leader>" })
 wk.register(code, { prefix = "<leader>" })
