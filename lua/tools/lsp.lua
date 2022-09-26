@@ -53,3 +53,9 @@ lspconfig.foam_ls.setup {
     require("config.keymap").basic_lsp(client, bufnr)
   end,
 }
+
+lspconfig.ccls.setup {
+  on_attach = function(client, bufnr)
+    require("config.keymap").basic_lsp(client, bufnr)
+  end,
+}
