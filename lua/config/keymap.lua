@@ -22,6 +22,16 @@ function keymap.shared()
   vim.keymap.set('v', '<s-up>', '<nop>' , { noremap = true, silent = true })
 
   vim.keymap.set('i', 'jj', '<esc>', { desc = "normal mode" })
+
+  vim.keymap.set('i','<Up>', '<nop>', {});
+  vim.keymap.set('i','<Down>', '<nop>', {});
+  vim.keymap.set('i','<Right>', '<nop>', {});
+  vim.keymap.set('i','<Left>', '<nop>', {});
+  
+  vim.keymap.set('n','<Up>', '<nop>', {});
+  vim.keymap.set('n','<Down>', '<nop>', {});
+  vim.keymap.set('n','<Right>', '<nop>', {});
+  vim.keymap.set('n','<Left>', '<nop>', {});
 end
 
 
@@ -71,19 +81,19 @@ function keymap.tex_lsp(client, bufnr)
     }
   end
 
-  vim.keymap.set('n', 'li', '<plug>(vimtex-info)', ins_desc 'info')
-  vim.keymap.set('n', 'lt', '<plug>(vimtex-toc-toggle)', ins_desc 'toggle toc')
-  vim.keymap.set('n', 'lq', '<plug>(vimtex-log)', ins_desc 'log')
-  vim.keymap.set('n', 'll', '<plug>(vimtex-compile)', ins_desc 'compile')
-  vim.keymap.set('n', 'lc', '<plug>(vimtex-clean)', ins_desc 'clean')
-  vim.keymap.set('n', 'lH', '<plug>(vimtex-stop)', ins_desc 'stop')
-  vim.keymap.set('n', 'le', '<plug>(vimtex-errors)', ins_desc 'errors')
-  vim.keymap.set('n', 'lm', '<plug>(vimtex-env-toggle-math)', ins_desc '[math] toggle env')
-  vim.keymap.set('n', 'ls', '<plug>(vimtex-cmd-toggle-star)', ins_desc '[cmd] toggle star')
-  vim.keymap.set('n', 'lS', '<plug>(vimtex-env-toggle-star)', ins_desc '[env] toggle star')
-  vim.keymap.set('n', 'lM', '<plug>(vimtex-delim-add-modifiers)', ins_desc '[math] add \\left')
-  vim.keymap.set('n', 'lD', '<plug>(vimtex-delim-toggle-modifier)', ins_desc '[math] toggle \\left')
-  vim.keymap.set('n', 'le', '<plug>(vimtex-env-change)', ins_desc '[env] change')
+  vim.keymap.set('n', '<space>li', '<plug>(vimtex-info)', ins_desc 'info')
+  vim.keymap.set('n', '<space>lt', '<plug>(vimtex-toc-toggle)', ins_desc 'toggle toc')
+  vim.keymap.set('n', '<space>lq', '<plug>(vimtex-log)', ins_desc 'log')
+  vim.keymap.set('n', '<space>ll', '<plug>(vimtex-compile)', ins_desc 'compile')
+  vim.keymap.set('n', '<space>lc', '<plug>(vimtex-clean)', ins_desc 'clean')
+  vim.keymap.set('n', '<space>lH', '<plug>(vimtex-stop)', ins_desc 'stop')
+  vim.keymap.set('n', '<space>le', '<plug>(vimtex-errors)', ins_desc 'errors')
+  vim.keymap.set('n', '<space>lm', '<plug>(vimtex-env-toggle-math)', ins_desc '[math] toggle env')
+  vim.keymap.set('n', '<space>ls', '<plug>(vimtex-cmd-toggle-star)', ins_desc '[cmd] toggle star')
+  vim.keymap.set('n', '<space>lS', '<plug>(vimtex-env-toggle-star)', ins_desc '[env] toggle star')
+  vim.keymap.set('n', '<space>lM', '<plug>(vimtex-delim-add-modifiers)', ins_desc '[math] add \\left')
+  vim.keymap.set('n', '<space>lD', '<plug>(vimtex-delim-toggle-modifier)', ins_desc '[math] toggle \\left')
+  vim.keymap.set('n', '<space>le', '<plug>(vimtex-env-change)', ins_desc '[env] change')
 end
 
 function keymap.cmp_mapping(cmp, luasnip, select_opts)

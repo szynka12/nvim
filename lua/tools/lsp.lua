@@ -59,3 +59,7 @@ lspconfig.ccls.setup {
     require("config.keymap").basic_lsp(client, bufnr)
   end,
 }
+
+lspconfig.bashls.setup {
+  on_attach = require("config.keymap").basic_lsp
+}
