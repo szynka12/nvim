@@ -7,7 +7,6 @@ require('nvim-treesitter.configs').setup({
     'cpp',
     'c',
     'julia',
-    'foam',
     'regex'
   },
   textobjects = {

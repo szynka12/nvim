@@ -48,11 +48,11 @@ lspconfig.texlab.setup {
 
 -- OpenFoam lsp
 -- TODO: This does not work now (kind of)!
-lspconfig.foam_ls.setup {
-  on_attach = function(client, bufnr)
-    require("config.keymap").basic_lsp(client, bufnr)
-  end,
-}
+-- lspconfig.foam_ls.setup {
+--   on_attach = function(client, bufnr)
+--     require("config.keymap").basic_lsp(client, bufnr)
+--   end,
+-- }
 
 lspconfig.ccls.setup {
   on_attach = function(client, bufnr)
